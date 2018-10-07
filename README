@@ -1,0 +1,47 @@
+compound
+========
+
+Package compound provides a method to calculate the sum of
+an initial investment, monthly payments & compounded interest
+
+install
+=======
+
+import "github.com/kasperlewau/compound"
+
+usage
+======
+
+principal := 1000
+monthly := 10
+interest := 2
+compounding := 12
+years := 10
+
+sum := compound.Interest(
+	principal,
+	monthly,
+	interest,
+	compounding,
+	years
+)
+
+formula
+=======
+
+(p*(1+(r/100/n)^(n*t))) + (pmt * ((12 / n) * ((1+(r/100/n)^n*t) - 1) / (r/100/n)))
+
+numbers
+=======
+
+goos: linux
+goarch: amd64
+pkg: github.com/kasperlewau/compound
+BenchmarkInterest-8   	20000000	        64.0 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	github.com/kasperlewau/compound	2.126s
+
+license
+=======
+
+MIT
